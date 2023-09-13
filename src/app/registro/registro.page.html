@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Agregar Repartidor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form id="container" class="form" [formGroup]="formularioReg" (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col><ion-input color="warning" label="Nombre" label-placement="floating" fill="solid" placeholder="Ingrese Nombre" formControlName="nombre"></ion-input></ion-col>
+        <ion-col><ion-input color="warning" label="Apellido" labelPlacement="floating" fill="solid"  placeholder="Ingrese Apellido" formControlName="apellido"></ion-input></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input
+            color="warning"
+            type="email"
+            fill="solid"
+            label="Email"
+            labelPlacement="floating"
+            helperText="Enter a valid email"
+            errorText="Invalid email"
+            ngModel
+            email
+            formControlName="email"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+              <ion-input
+                color="warning"
+                placeholder="Ingrese Rut"
+                fill="solid"
+                label="RUT"
+                [value]="inputModel"
+                (ionInput)="onInput($event)"
+                #ionInputEl
+                formControlName="rut"
+              ></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-input color="warning" label="Número" labelPlacement="floating" fill="solid" [counter]="true" maxlength="15" placeholder="Ingrese Número" formControlName="numero"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button fill="outline" expand="block" color="warning" type="submit" [disabled]="!formularioReg.valid">Confirma</ion-button>
+          <ion-button expand="block" color="warning" [routerLink]="['/users-list']">Volver</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+
+</ion-content>

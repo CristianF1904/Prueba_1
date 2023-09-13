@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Agregar Paquete</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="formularioPlace" (ngSubmit)="onSubmit()">
+    <ion-input color="warning" label="Nombre" label-placement="floating" fill="solid" placeholder="Ingrese Nombre del Paquete" formControlName="nombrePa"></ion-input>
+    <ion-item>
+      <ion-label>Seleccione Estado</ion-label>
+      <ion-select placeholder="Seleccione Estado" okText="Aceptar" cancelText="Cancelar" formControlName="estado">
+        <ion-select-option value="Por Repartir">Por Repartir</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button fill="outline" expand="block" color="warning" type="submit" [disabled]="!formularioPlace.valid">Confirma</ion-button>
+  </form>
+  <ion-button expand="block" color="warning" [routerLink]="['/places-list']">Volver</ion-button>
+</ion-content>

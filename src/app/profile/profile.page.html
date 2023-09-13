@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="user">
+      <div class="contenedor">
+        <ion-img class="imagen" alt="Silhouette of a person's head" src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_960_720.png"></ion-img>
+      </div>
+      <ion-card color="warning">
+        <ion-card-header>
+          <ion-card-title>Cargo</ion-card-title>
+          <ion-card-subtitle>Repartidor</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Nombre</ion-card-title>
+          <ion-card-subtitle>{{user.nombre}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Apellido</ion-card-title>
+          <ion-card-subtitle>{{user.apellido}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Rut</ion-card-title>
+          <ion-card-subtitle>{{user.rut}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Correo Electronico</ion-card-title>
+          <ion-card-subtitle>{{user.email}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Número</ion-card-title>
+          <ion-card-subtitle>{{user.numero}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-button expand="block" color="warning" [routerLink]="['/users-list']">Volver</ion-button>
+      <ion-button expand="block" color="warning" [routerLink]="['/home']">Home</ion-button>
+  </div>
+  <div *ngIf="!user">
+    <p>Usuario no encontrado.</p>
+  </div>
+</ion-content>

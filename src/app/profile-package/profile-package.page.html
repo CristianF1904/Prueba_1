@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perfil Paquete</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div *ngIf="package">
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Nombre de Paquete</ion-card-title>
+          <ion-card-subtitle>{{package.nombrePa}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Estado del Paquete</ion-card-title>
+          <ion-card-subtitle>{{package.estado}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card> 
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Repartidor</ion-card-title>
+          <ion-card-subtitle>{{package.repartidor}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>  
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title>Asociar Con:</ion-card-title>
+          <br>
+            <ion-card color="light">
+              <ion-card-header> 
+                <div *ngFor="let user of getUsers" >
+                  <ion-button expand="block" (click)="updatePackage(user.nombre, user.id)">{{package.id}} {{user.nombre}} {{user.apellido}}</ion-button>
+                </div>
+              </ion-card-header>
+            </ion-card>
+        </ion-card-header>
+      </ion-card>  
+      <ion-button expand="block" color="warning" [routerLink]="['/places-list']">Volver</ion-button>
+      <ion-button expand="block" color="warning" [routerLink]="['/home']">Home</ion-button>
+  </div>
+  <div *ngIf="!package">
+    <p>Package no encontrado.</p>
+  </div>
+</ion-content>

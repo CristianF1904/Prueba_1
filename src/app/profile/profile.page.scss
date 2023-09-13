@@ -1,0 +1,11 @@
+.contenedor {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 10px;
+  }
+  
+  .imagen {
+    max-width: 50%; /* Ajusta el tamaño de la imagen según sea necesario */
+    max-height: 50%; /* Ajusta el tamaño de la imagen según sea necesario */
+  }

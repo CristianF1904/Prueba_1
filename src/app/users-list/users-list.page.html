@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Repartidores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <div *ngFor="let user of getUsers">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Nombre: {{user.nombre}}</ion-card-title>
+          <ion-card-subtitle>Apellido: {{user.apellido}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button color="warning" expand="block" [routerLink]="['/users-list', user.id]">Perfil</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
+  <ion-button color="warning" expand="block" [routerLink]="['/places-list']">Ver Paquetes Asociados</ion-button>
+  <ion-button expand="block" color="warning" [routerLink]="['/home']">Home</ion-button>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['/registro']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Paquetes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <div *ngFor="let package of getPlaces">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Nombre del Paquete: {{package.nombrePa}}</ion-card-title>
+          <ion-card-subtitle *ngIf="mostrarContenido">Estado: {{package.estado}}</ion-card-subtitle>
+          <ion-card-subtitle *ngIf="mostrarContenido">Repartidor: {{package.repartidor}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button color="warning" expand="block" [routerLink]="['/places-list', package.id]">Asociar Repartidor</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
+  <ion-button expand="block" (click)="toggleContenido()">Mostrar/Ocultar Detalles Paquetes</ion-button>
+  <ion-button expand="block" color="warning" [routerLink]="['/home']">Home</ion-button>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['/place-form']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
